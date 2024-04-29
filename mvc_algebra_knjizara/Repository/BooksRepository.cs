@@ -29,7 +29,23 @@ namespace mvc_algebra_knjizara.Repository
 
         public void CreateNewBook(Book new_book)
         {
+            if (new_book == null) return;
+            if (new_book.BookId <= 0)
+            {
+                new_book.BookId = next_bookID();
+            }
+            var exists= books.Where(x=>x.BookId == new_book.BookId).FirstOrDefault();
+            if(exists != null) 
+            {
+                throw new Exception("There allready exists a book with that ID!"); 
+            }
             books.Add(new_book);
+        }
+
+        private int next_bookID()
+        {
+            int bid=books.Max(x => x.BookId);
+            return bid+1;
         }
 
         public void DeleteBook(int id)

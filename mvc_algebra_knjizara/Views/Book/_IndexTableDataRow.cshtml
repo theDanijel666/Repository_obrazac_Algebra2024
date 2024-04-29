@@ -1,0 +1,32 @@
+﻿@model Book
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => Model.BookId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Genre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Stock)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.ReleaseDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Author)
+    </td>
+    <td>
+        @Html.ActionLink("Uredi", "Edit", new { id = Model.BookId }) |
+        @Html.ActionLink("Detalji", "Details", new { id = Model.BookId }) |
+        @Html.ActionLink("Obriši", "Delete", new { id = Model.BookId })
+    </td>
+</tr>
